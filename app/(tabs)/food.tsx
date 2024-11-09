@@ -2,6 +2,8 @@ import React from 'react'
 import { View, Text, StyleSheet, Image, ScrollView } from 'react-native'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import { NavigationContainer } from '@react-navigation/native'
+import { Ionicons, MaterialIcons } from '@expo/vector-icons';
+
 
 const Tab = createBottomTabNavigator();
 
@@ -166,20 +168,61 @@ function Drinks() {
   );
 }
 
+function Membership() {
+    return(
+        <ScrollView style={styles.scrollContainer}>
+        <View style={styles.container}>
+        <Text style={styles.text}>Membership</Text>
+        <Text style={styles.itemText}>Gold</Text>
+        <Image 
+            style={styles.image}
+            source={{uri: 'https://images.unsplash.com/photo-1608935405374-223bbea5d535?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'}}
+            resizeMode="cover"
+            accessibilityLabel=""
+            blurRadius={0}
+            onLoad={() => console.log('Image loaded')}
+            onError={() => console.error('Image failed to load')}
+        />
+        <Text style={styles.itemText}>Silver</Text>
+        <Image 
+            style={styles.image}
+            source={{uri: 'https://images.unsplash.com/photo-1707783764111-502472d31ace?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'}}
+            resizeMode="cover"
+            accessibilityLabel=""
+            blurRadius={0}
+            onLoad={() => console.log('Image loaded')}
+            onError={() => console.error('Image failed to load')}
+        />
+        <Text style={styles.itemText}>Bronze</Text>
+        <Image 
+            style={styles.image}
+            source={{uri: 'https://plus.unsplash.com/premium_photo-1669170039121-d3108b1d0ec4?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'}}
+            resizeMode="cover"
+            accessibilityLabel="Drinkes - Iced Coffee"
+            blurRadius={0}
+            onLoad={() => console.log('Image loaded')}
+            onError={() => console.error('Image failed to load')}
+        />
+        </View>
+    </ScrollView>
+    )
+}
+
 // Main Tab Component
 export default function RestaurantMenuTabs() {
   return (
       <Tab.Navigator
         screenOptions={{
-          tabBarActiveTintColor: '#1e8dc0',
+          tabBarActiveTintColor: 'white',
           tabBarInactiveTintColor: 'gray',
-          tabBarStyle: { backgroundColor: '#f5f5f5' },
+          tabBarStyle: { backgroundColor: 'black' },
         }}
       >
-        <Tab.Screen name="Appetizers" component={Appetizers} />
-        <Tab.Screen name="Main Courses" component={MainCourses} />
-        <Tab.Screen name="Desserts" component={Desserts} />
-        <Tab.Screen name="Drinks" component={Drinks} />
+        <Tab.Screen name="Appetizers" component={Appetizers} options={{tabBarIcon: ({ color, size }) => (<Ionicons name="add-outline" size={size} color={color} />),}}/>
+        <Tab.Screen name="Main Courses" component={MainCourses} options={{tabBarIcon: ({ color, size }) => (<Ionicons name="add-outline" size={size} color={color} />),}} />
+        <Tab.Screen name="Desserts" component={Desserts} options={{tabBarIcon: ({ color, size }) => (<Ionicons name="add-outline" size={size} color={color} />),}} />
+        <Tab.Screen name="Drinks" component={Drinks} options={{tabBarIcon: ({ color, size }) => (<Ionicons name="add-outline" size={size} color={color} />),}} />
+        <Tab.Screen name="Membership" component={Membership} options={{tabBarIcon: ({ color, size }) => (<Ionicons name="star" size={size} color={color} />),}} />
       </Tab.Navigator>
   );
 }
@@ -202,8 +245,8 @@ const styles = StyleSheet.create({
     marginBottom: 10,
   },
   image: {
-    width: 220, 
-    height: 350,
+    width: 300, 
+    height: 400,
     resizeMode: 'cover',
     borderRadius: 10,
     marginVertical: 10,
