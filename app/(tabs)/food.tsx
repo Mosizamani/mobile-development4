@@ -10,12 +10,19 @@ const Tab = createBottomTabNavigator();
 // Define each menu category as a separate screen component
 function Appetizers() {
   return (
-    <ScrollView style={styles.scrollContainer}> 
+    <ScrollView 
+    style={styles.scrollContainer}
+    decelerationRate={'fast'}
+    snapToInterval={300}
+    snapToAlignment={'center'}
+    bounces={true}
+    snapToOffsets={[475, 950]}
+    > 
         <View style={styles.container}>
         <Text style={styles.text}>Appetizers Menu</Text>
         <Text style={styles.itemText}>Spring Rolls</Text>
         <Image
-            style={styles.image}view
+            style={styles.image}
             source={{uri: 'https://images.unsplash.com/photo-1602375850899-c389c4a0fc70?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'}} 
             resizeMode="cover"
             accessibilityLabel=""
@@ -50,7 +57,14 @@ function Appetizers() {
 
 function MainCourses() {
   return (
-    <ScrollView style={styles.scrollContainer}>
+    <ScrollView 
+    style={styles.scrollContainer}
+    decelerationRate={'fast'}
+    snapToInterval={300}
+    snapToAlignment={'center'}
+    bounces={true}
+    snapToOffsets={[475, 950]}
+    >
         <View style={styles.container}>
         <Text style={styles.text}>Main Courses Menu</Text>
         <Text style={styles.itemText}>Grilled Chicken</Text>
@@ -90,7 +104,14 @@ function MainCourses() {
 
 function Desserts() {
   return (
-    <ScrollView style={styles.scrollContainer}>
+    <ScrollView 
+    style={styles.scrollContainer}
+    decelerationRate={'fast'}
+    snapToInterval={300}
+    snapToAlignment={'center'}
+    bounces={true}
+    snapToOffsets={[475, 950]}
+    >
         <View style={styles.container}>
         <Text style={styles.text}>Desserts Menu</Text>
         <Text style={styles.itemText}>Cheesecake</Text>
@@ -130,7 +151,14 @@ function Desserts() {
 
 function Drinks() {
   return (
-    <ScrollView style={styles.scrollContainer}>
+    <ScrollView 
+    style={styles.scrollContainer}
+    decelerationRate={'fast'}
+    snapToInterval={300}
+    snapToAlignment={'center'}
+    bounces={true}
+    snapToOffsets={[475, 950]}
+    >
         <View style={styles.container}>
         <Text style={styles.text}>Drinks Menu</Text>
         <Text style={styles.itemText}>Mojito</Text>
@@ -170,7 +198,14 @@ function Drinks() {
 
 function Membership() {
     return(
-        <ScrollView style={styles.scrollContainer}>
+        <ScrollView 
+        style={styles.scrollContainer}
+        decelerationRate={'fast'}
+        snapToInterval={300}
+        snapToAlignment={'center'}
+        bounces={true}
+        snapToOffsets={[475, 950]}
+        >
         <View style={styles.container}>
         <Text style={styles.text}>Membership</Text>
         <Text style={styles.itemText}>Gold</Text>
@@ -234,7 +269,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   text: {
-    fontColor: 'white',
+    color: 'white',
     fontSize: 20,
     fontWeight: 'bold',
     marginBottom: 10,
